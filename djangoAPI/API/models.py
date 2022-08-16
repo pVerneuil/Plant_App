@@ -21,7 +21,7 @@ class Sensor(models.Model):
         ('airmoist','airmoist'),
         ('lvl','lvl'),
     }
-    number = models.IntegerField()
+    name = models.CharField(max_length=20, null=True)
     type = models.CharField(max_length=20, choices= sensor_type)
     plug_in_device = models.ForeignKey(Device,null= True, on_delete=models.SET_NULL)
     emplacement = models.ForeignKey(Emplacement, null= True, on_delete=models.SET_NULL)
@@ -37,4 +37,4 @@ class Feedback(models.Model):
         
     )
     type = models.CharField(max_length=128, choices=type_choices)
-    time = models.DateTimeField()
+    time = models.DateTimeField(auto_now_add=True)

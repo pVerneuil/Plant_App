@@ -5,15 +5,14 @@ const TemperatureGauge = () => {
     const [temp, setTemp ] = useState([]);
     useEffect(() =>  {
         axios
-        .get('http://127.0.0.1:8000/data/1/')
+        .get('http://127.0.0.1:8000/feedback/')
         .then((res) => setTemp(res.data));
+        
     },[])
 
     return (
         <div>
-            <p>
-                {temp.value} °C
-            </p>
+                {temp.map((feedback)=> <p> {feedback.value}°C  time: {feedback.time.slice(11,-8)} date: {feedback.time.slice(0,10)}</p>)}
         </div>
     );
 };
