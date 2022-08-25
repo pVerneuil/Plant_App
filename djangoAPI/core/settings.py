@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ysp#0pf6rvw$7*40712k88j2@x!r*^d$i51-_9%%0d%!(8^f(9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['backend','192.168.0.10', '127.0.0.1']
+ALLOWED_HOSTS = ['backend','192.168.0.10', '127.0.0.1', '0.0.0.0', 'localhost']
 CORS_ORIGIN_ALLOW_ALL = True
 
 

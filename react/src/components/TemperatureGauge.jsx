@@ -11,7 +11,7 @@ const TemperatureGauge = () => {
     },[])
 
     return (
-        <div>
+        <div>   {<p> {temp[0]?temp[0].value:''}</p>}
                 {temp.map((feedback)=> <p> {feedback.value}°C  time: {feedback.time.slice(11,-8)} date: {feedback.time.slice(0,10)}</p>)}
         </div>
     );
