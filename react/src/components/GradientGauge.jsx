@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Gauge } from '@ant-design/plots';
 
 const GradientGauge = () => {
-  const outputValue = 50;
+  const outputValue = 25;
   const outputUnit = '°C'
   const outputPhysicalQuantity = 'Température'
   const config = {

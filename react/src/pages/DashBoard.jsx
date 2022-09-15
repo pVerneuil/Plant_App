@@ -8,7 +8,7 @@ const Dashboard = () => {
         <div>
             <h1>Dashboard</h1>
             <GradientGauge/>
-            <TemperatureGauge/>
+            {/* <TemperatureGauge/> */}
 
         </div>
     );
