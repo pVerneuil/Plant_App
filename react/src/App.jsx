@@ -1,19 +1,25 @@
-import React from "react";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
+import Layout from "./components/Layout";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import DashBoard from "./pages/DashBoard";
+import PageTwo from "./pages/PageTwo";
+import PageThree from "./pages/PageThree";
+import PageCTA from "./pages/PageCTA";
 
 function App() {
   return (
     <BrowserRouter>
-    <Routes>
-      <Route path="/" element= {<Home />} />
-      <Route path="/dashboard" element= {<Dashboard />} />
-      {/* /* path='*' wildcard if the url doesn't match any declared urls */}
-      <Route path="*" element= {<Home />} />
-    </Routes>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/DashBoard" element={<DashBoard />} />
+          <Route path="/page-two" element={<PageTwo />} />
+          <Route path="/page-three" element={<PageThree />} />
+          <Route path="/page-cta" element={<PageCTA />} />
+        </Routes>
+      </Layout>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

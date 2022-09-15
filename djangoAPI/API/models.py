@@ -31,10 +31,9 @@ class Feedback(models.Model):
     comming_from = models.ForeignKey(Sensor,null= True, on_delete=models.SET_NULL)
     type_choices= (
         ('TEMP' , 'temperature'),
-        ('HUMA' , ' air humidity'),
+        ('HUMA' , 'air humidity'),
         ('HUMS' , 'soil humidity'),
-        ('LVLW' , 'water level'),
-        
+        ('LVLW' , 'water level'),       
     )
     type = models.CharField(max_length=128, choices=type_choices)
     time = models.DateTimeField(auto_now_add=True)
