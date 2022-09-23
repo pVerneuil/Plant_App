@@ -1,5 +1,5 @@
 import React from 'react';
-import TemperatureGauge from '../components/TemperatureGauge';
+import TemperatureGaugetest from '../components/TemperatureGaugetest';
 import GradientGauge from './../components/GradientGauge'
 
 
@@ -8,7 +8,7 @@ const Dashboard = () => {
         <div>
             <h1>Dashboard</h1>
             <GradientGauge/>
-            {/* <TemperatureGauge/> */}
+            <TemperatureGaugetest/>
 
         </div>
     );
