@@ -11,12 +11,15 @@
   "dependencies": {
     "@ant-design/charts": "^1.4.2",
     "axios": "^0.27.2",
+    "echarts": "^5.3.3",
+    "echarts-for-react": "^3.0.2",
     "node-sass": "^7.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "react-router-dom": "^6.4.0",
-    "sass": "^1.54.3"
+    "sass": "^1.54.3",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@types/react": "^18.0.15",

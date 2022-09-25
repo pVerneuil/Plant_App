@@ -1,16 +1,12 @@
-import React,{useEffect, useState} from 'react'
-import instance from './ApiConfig'
+import React, { useEffect, useState } from "react";
+import instance from "./ApiConfig";
 
-
-const ApiGet = async () => {
-  let resp
-     await instance
-          .get('feedback/')
-          .then(response => {
-              resp = response.data;
-              // console.log(resp);
-          })
-          .catch(error => console.log('get error', error));
-  return resp
-  };
+const ApiGet = async (props) => {
+  try {
+    const { data: resp } = await instance.get(props.url);
+    return resp;
+  } catch (error) {
+    console.error(error);
+  }
+};
 export default ApiGet;

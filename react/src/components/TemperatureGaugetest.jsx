@@ -2,12 +2,10 @@ import axios from 'axios';
 import React, { useEffect, useState} from 'react';
 import ApiGet from '../utilities/ApiGet'
 
-const TemperatureGaugetest = () => {
+const TemperatureGaugetest = (props) => {
     const [temp, setTemp ] = useState([]);
-    useEffect(() =>  {
-        ApiGet()
-        .then(setTemp(ApiGet())); 
-        console.log('temp= '+temp)     
+    useEffect(()=>async () => {
+        setTemp(await ApiGet(props))   
     },[])
 
     return (
