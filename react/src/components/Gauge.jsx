@@ -11,14 +11,16 @@ const Gauge = (props) => {
   //Style
   const Wrapper = styled.div`
     border-radius: 20px;
-    background: #e8f7e7;
+    background: #ffffffe8;
     max-width: 370px;
+    min-width: 340px;
     margin: 5px;
     &.title {
         font-size: large;
         font-weight: Bold;
         text-align: center;
         border: none;
+        color: rgb(112, 161, 87);
     }
   `;
 
