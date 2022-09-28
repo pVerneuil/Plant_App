@@ -4,11 +4,11 @@
     height: calc(100vh - #{$headerHeight});
     background: $background;
     padding-top: 20px;
-    margin: 1rem;
+    
     h1 {
         font-size: rem;
         padding: 1rem 2.5rem;
-        background: linear-gradient(220deg, $primary, rgba($primary, 0.5));
+        background: $primary;
         border-radius: $borderRadius calc(#{$borderRadius} *2);
     }
 }

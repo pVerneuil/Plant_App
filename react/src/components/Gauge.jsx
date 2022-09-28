@@ -11,16 +11,16 @@ const Gauge = (props) => {
   //Style
   const Wrapper = styled.div`
     border-radius: 20px;
-    background: #ffffffe8;
+    background: ${(props) => props.theme.background};
     max-width: 370px;
     min-width: 340px;
     margin: 5px;
     &.title {
-        font-size: large;
-        font-weight: Bold;
-        text-align: center;
-        border: none;
-        color: rgb(112, 161, 87);
+      font-size: large;
+      font-weight: Bold;
+      text-align: center;
+      border: none;
+      color: ${(props) => props.theme.dark};
     }
   `;
 
@@ -46,22 +46,7 @@ const Gauge = (props) => {
     color1 = "#7FAEF8";
     color2 = "#186BEF";
   }
-  const reference = useRef();
-  const [width, setWidth] = useState();
-  const getSize = () => {
-    const newWidth = reference.current.clientWidth;
-    setWidth(newWidth);
-  };
-  useEffect(() => {
-    getSize();
-  }, []);
 
-  // Update 'width' when the window resizes
-  useEffect(() => {
-    window.addEventListener("resize", getSize);
-  }, []);
-  
-  var fontSize = width / 10;
   const option = {
     series: [
       {
@@ -120,7 +105,7 @@ const Gauge = (props) => {
           lineHeight: 40,
           borderRadius: 8,
           offsetCenter: [0, "-15%"],
-          fontSize: fontSize,
+          fontSize: 30,
           fontWeight: "bolder",
           formatter: "{value} " + unit,
           color: "inherit",
@@ -173,8 +158,10 @@ const Gauge = (props) => {
   };
 
   return (
-    <Wrapper ref={reference}>
+    <Wrapper>
+      <Wrapper className="gauge">
         <ReactEcharts option={option} />
+      </Wrapper>
       <Wrapper className="title">{gaugetitle}</Wrapper>
     </Wrapper>
   );
