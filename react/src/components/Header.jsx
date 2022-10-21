@@ -9,14 +9,9 @@ import { Link, useNavigate } from "react-router-dom";
 const Header = () => {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
-  //! why??
-  //   const [size, setSize] = useState({
-  //     width: undefined,
-  //     height: undefined,
-  //   });
   const [size, setSize] = useState({
-    width: 691,
-    height: 844,
+    width: window.innerWidth,
+    height: window.innerHeight,
   });
 
   useEffect(() => {

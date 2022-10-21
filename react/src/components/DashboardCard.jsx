@@ -6,14 +6,14 @@ function DashboardCard() {
   //Style
   const CardWrapper = styled.div`
     border: solid 2px;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     margin-top: 20px;
     color: ${(props) => props.theme.dark};
   `;
   const Card__sub = styled.div`
     border-color: ${(props) => props.theme.primary};
     border: solid 2px;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     margin: 5px;
   `;
   const Card__sub__gauges = styled.div`
@@ -41,8 +41,8 @@ function DashboardCard() {
       <Card__sub>
         <Card__title__sub>Room</Card__title__sub>
         <Card__sub__gauges>
-          <Gauge />
-          <Gauge />
+          <Gauge type = 'TEMP' title = "test" measurement = '50'/>
+          <Gauge type = 'HUMA'/>
         </Card__sub__gauges>
       </Card__sub>
       <Card__sub>

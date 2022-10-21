@@ -5,9 +5,9 @@ import styled from "styled-components";
 
 const Gauge = (props) => {
   //Data
-  const gaugetitle = "Température";
-  const measurement = 40;
-  const measurementType = "TEMP";
+  const gaugetitle = props.title;
+  const measurement = props.measurement;
+  const measurementType = props.type;
   //Style
   const Wrapper = styled.div`
     border-radius: 20px;

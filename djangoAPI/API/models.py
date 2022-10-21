@@ -26,14 +26,15 @@ class Sensor(models.Model):
     plug_in_device = models.ForeignKey(Device,null= True, on_delete=models.SET_NULL)
     emplacement = models.ForeignKey(Emplacement, null= True, on_delete=models.SET_NULL)
 
-class Feedback(models.Model):
-    value = models.FloatField()
-    comming_from = models.ForeignKey(Sensor,null= True, on_delete=models.SET_NULL)
-    type_choices= (
+type_choices= (
         ('TEMP' , 'temperature'),
         ('HUMA' , 'air humidity'),
         ('HUMS' , 'soil humidity'),
         ('LVLW' , 'water level'),       
     )
+
+class Feedback(models.Model):
+    value = models.FloatField()
+    comming_from = models.ForeignKey(Sensor,null= True, on_delete=models.SET_NULL)
     type = models.CharField(max_length=128, choices=type_choices)
     time = models.DateTimeField(auto_now_add=True)
