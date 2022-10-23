@@ -1,8 +1,22 @@
 import React from "react";
 import Gauge from "./Gauge";
 import styled from "styled-components";
+import React, { useEffect, useState} from 'react';
+import ApiGet from '../utilities/ApiGet'
 
-function DashboardCard() {
+function DashboardCard(props) {
+  //starting from a emplacement de type != plant. let's call it 'room'
+  // getting temps and air humidity for 'room'.
+  const [temp, setTemp] = useState([]);
+  useEffect(()=> async () => {
+    //? getting the sensor i?? for the feed back request
+    const sensorTempRes = await(ApiGet(String.format(
+      '/sensor/?name=&type=temp&plug_in_device=&emplacement=%d',
+      props.room)))
+    const sensorTempId = sensorTempRes.
+    setTemp(await ApiGet(''))
+  },[])
+
   //Style
   const CardWrapper = styled.div`
     border: solid 2px;
@@ -34,6 +48,7 @@ function DashboardCard() {
     color: ${(props) => props.theme.primary};
     background-color: ${(props) => props.theme.dark};
   `;
+
 
   return (
     <CardWrapper>
