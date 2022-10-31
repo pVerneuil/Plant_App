@@ -6,8 +6,7 @@ import styled from "styled-components";
 const Gauge = (props) => {
   //Data
   const gaugetitle = props.title;
-  const measurement = 15;
-  // const measurement = props.measurement;
+  const measurement = props.measurement;
   const measurementType = props.type;
   //Style
   const Wrapper = styled.div`

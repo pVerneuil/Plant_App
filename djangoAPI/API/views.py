@@ -1,10 +1,13 @@
+from time import time
 from rest_framework.viewsets import ModelViewSet
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import filters
-
+from rest_framework import filters, generics
+from django_filters import rest_framework as filterSet
+from django.utils import timezone
+from datetime import timedelta
 from .models import Emplacement, Device, Sensor, Feedback
 from .serializers import EmplacementSerializer, DeviceSerializer, SensorSerializer, FeedbackSerializer
-import django_filters
+
 
 class EmplacementViewSet(ModelViewSet):
     queryset = Emplacement.objects.all()
@@ -27,10 +30,6 @@ class SensorViewSet(ModelViewSet):
     filterset_fields = '__all__'
     search_fields = '__all__'
     
-class FeedbackViewSet(ModelViewSet):
-    queryset = Feedback.objects.all()
-    serializer_class = FeedbackSerializer
-    search_fields = '__all__'
 
 type_choices= (
         ('TEMP' , 'temperature'),
@@ -39,8 +38,20 @@ type_choices= (
         ('LVLW' , 'water level'),       
     )
 
-class FeedbackFilter(django_filters.FilterSet):
-    type = django_filters.ChoiceFilter (choices=type_choices)
+class FeedbackFilter(filterSet.FilterSet):
+    type = filterSet.ChoiceFilter (choices = type_choices)
+    id = filterSet.NumberFilter(field_name = 'id')
+    hours = filterSet.NumberFilter(
+        field_name='time', method='get_past_n_hours', label="Past n hours")
+
+    def get_past_n_hours(self, queryset, field_name, value):
+        time_threshold = timezone.now() - timedelta(hours=int(value))
+        return queryset.filter(time__gte=time_threshold)
     class Meta:
         model = Feedback
-        fields=['type']
+        fields=['comming_from']
+class FeedbackViewSet(ModelViewSet):
+    queryset = Feedback.objects.order_by('-time','type')
+    serializer_class = FeedbackSerializer
+    filter_backends = (filterSet.DjangoFilterBackend,)
+    filterset_class = FeedbackFilter
