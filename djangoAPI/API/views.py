@@ -5,8 +5,8 @@ from rest_framework import filters, generics
 from django_filters import rest_framework as filterSet
 from django.utils import timezone
 from datetime import timedelta
-from .models import Emplacement, Device, Sensor, Feedback
-from .serializers import EmplacementSerializer, DeviceSerializer, SensorSerializer, FeedbackSerializer
+from .models import Emplacement, Device, Sensor, Feedback, Actuator, Instruction
+from .serializers import EmplacementSerializer, DeviceSerializer, SensorSerializer, FeedbackSerializer, ActuatorSerializer,InstructionSerializer
 
 
 class EmplacementViewSet(ModelViewSet):
@@ -55,3 +55,17 @@ class FeedbackViewSet(ModelViewSet):
     serializer_class = FeedbackSerializer
     filter_backends = (filterSet.DjangoFilterBackend,)
     filterset_class = FeedbackFilter
+
+class ActuatorViewSet(ModelViewSet):
+    queryset = Actuator.objects.all()
+    serializer_class = ActuatorSerializer
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter]
+    filterset_fields = '__all__'
+    search_fields = '__all__'
+class InstructionViewSet(ModelViewSet):
+    queryset = Instruction.objects.all()
+    serializer_class = InstructionSerializer
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter]
+    filterset_fields = '__all__'
+    search_fields = '__all__'
+

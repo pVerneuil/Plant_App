@@ -4,7 +4,7 @@ import { ThemeProvider } from "styled-components";
 
 import Home from "./pages/Home";
 import DashBoard from "./pages/DashBoard";
-import PageTwo from "./pages/PageTwo";
+import InstructionsPage from "./pages/InstructionsPage";
 import PageThree from "./pages/PageThree";
 import PageCTA from "./pages/PageCTA";
 const theme = {
@@ -22,7 +22,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/DashBoard" element={<DashBoard />} />
-            <Route path="/page-two" element={<PageTwo />} />
+            <Route path="/InstructionsPage" element={<InstructionsPage />} />
             <Route path="/page-three" element={<PageThree />} />
             <Route path="/page-cta" element={<PageCTA />} />
           </Routes>

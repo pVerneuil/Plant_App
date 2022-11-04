@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Emplacement, Device, Sensor, Feedback
+from .models import Emplacement, Device, Sensor, Feedback, Actuator,Instruction
 
 class EmplacementSerializer(serializers.ModelSerializer):
     class Meta:
@@ -19,4 +19,14 @@ class SensorSerializer(serializers.ModelSerializer):
 class FeedbackSerializer(serializers.ModelSerializer):
     class Meta:
         model = Feedback
+        fields = "__all__"
+
+class ActuatorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Actuator
+        fields = "__all__"
+
+class InstructionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Instruction
         fields = "__all__"
