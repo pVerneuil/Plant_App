@@ -1,5 +1,5 @@
-import * as variable from "./../styles/variables.scss";
-import React, { useRef, useState, useEffect } from "react";
+
+import React from "react";
 import ReactEcharts from "echarts-for-react";
 import styled from "styled-components";
 

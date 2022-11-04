@@ -25,7 +25,7 @@ const InstructionForm = (props) => {
     dataToPost["duration"] = parseInt(data["duration"]);
     console.log(dataToPost);
     ApiPost('/instruction/', dataToPost);
-
+    alert(`Commande envoyée!`)
   };
   const typedict = {
     ATOM: "Brumisateur",
