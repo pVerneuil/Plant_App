@@ -1,4 +1,5 @@
 import Gauge from "./Gauge";
+import SimpleChart from "./SimpleChart";
 import styled from "styled-components";
 import React, { useEffect, useState } from "react";
 import ApiGet from "../utilities/ApiGet";
@@ -9,6 +10,8 @@ function DashboardCard(props) {
   const [HUMA, setHUMA] = useState([]);
   const [TEMP, setTEMP] = useState([]);
   const [PLANTS, setPLANTS] = useState([]);
+  const [xValues, setxValues] = useState([]);
+  const [yValues, setyValues] = useState([]);
 
   useEffect(
     () => async () => {
@@ -64,7 +67,20 @@ function DashboardCard(props) {
           value: lastFeedbacksFromSensor.results[0]["value"],
         });
       }
-      setPLANTS(plantDataList);
+      // ####
+      // setPLANTS(plantDataList);
+      // console.log(airHumidityfeedbacks.results);
+      // let testu = await airHumidityfeedbacks;
+      // const xValues = [];
+      // const yValues = [];
+      // testu.results.map((e) => {
+      //   xValues.push(e["time"]);
+      //   yValues.push(e["value"]);
+      // });
+      // console.log(xValues);
+      // console.log(yValues);
+      // setxValues(xValues);
+      // setyValues(yValues);
     },
     []
   );
@@ -100,6 +116,15 @@ function DashboardCard(props) {
     color: ${(props) => props.theme.primary};
     background-color: ${(props) => props.theme.dark};
   `;
+  const Test = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    width: max-content;
+    &.chart{
+      width: max-content;
+      
+    }
+  `;
 
   return (
     <CardWrapper>
@@ -131,6 +156,22 @@ function DashboardCard(props) {
           ))}
         </Card__sub__gauges>
       </Card__sub>
+      {/* <Test>
+        <Test className="chart">
+          <SimpleChart
+            xValues={xValues}
+            yValues={yValues}
+            mostRecentValue={HUMA["value"]}
+          />
+        </Test>
+        <Test className="chart">
+          <SimpleChart
+            xValues={xValues}
+            yValues={yValues}
+            mostRecentValue={HUMA["value"]}
+          />
+        </Test>
+      </Test> */}
     </CardWrapper>
   );
 }
